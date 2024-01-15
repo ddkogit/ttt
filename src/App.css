@@ -7,6 +7,12 @@
   justify-content: space-evenly;
   align-items: center;
   
-
 }
 
+
+.sqr:hover{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  opacity: 0.8;
+  background-color: aqua;
+}

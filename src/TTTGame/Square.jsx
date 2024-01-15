@@ -3,6 +3,7 @@ import React from 'react'
 function Square(props) {
   return (
     <div
+    className='sqr'
     onClick={props.onClick} 
     style={{
       border:'1px solid',height:"150px",width:"150px"

@@ -50,7 +50,15 @@ function Board() {
     }
   }
 
+  const isWinner = checkWinner();
+
+
   const checkDraw =()=>{
+
+   if(isWinner){
+      return
+    }
+    
     let count=0;
     for (let item of state){
             if(item!==null){
@@ -88,7 +96,6 @@ function Board() {
     
   }
 
-  const isWinner = checkWinner();
   const isDraw = checkDraw();
 
 

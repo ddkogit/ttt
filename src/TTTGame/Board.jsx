@@ -40,17 +40,42 @@ function Board() {
     }
   }
 
+  const checkDraw =()=>{
+    let count=0;
+    for (let item of state){
+            if(item!==null){
+                count++
+            }
+
+            if(count===9){
+                return "draw"
+            }
+    }
+  }
+  const handleUndo=()=>{
+
+    setIsX(!isX);
+
+  }
+
+
+
+ 
   const resetGame=()=>{
     setState(Array(9).fill(null));
     
   }
 
   const isWinner = checkWinner();
+  const isDraw = checkDraw();
 
   return (
 
     <div>
       <div className="board-container">
+
+      {isDraw?<><p>Game is Draw </p>
+      <button onClick={resetGame}>Play Again</button></>: <>
      { isWinner? <>{isWinner} won the game <button onClick={resetGame}>
         play again</button> </>:  <>
         <h4>Player {isX ? "X" : "O"} turn</h4>
@@ -69,10 +94,19 @@ function Board() {
           <Square onClick={() => handleClick(7)} value={state[7]} />
           <Square onClick={() => handleClick(8)} value={state[8]} />
         </div>
+
+        <button onClick={handleUndo}>
+            Undo
+        </button>
+        <button onClick={resetGame}>
+            Reset
+        </button>
+        </>}
         </>}
       </div>
     </div>
   );
 }
+
 
 export default Board;

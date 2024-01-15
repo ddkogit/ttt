@@ -1,6 +1,12 @@
 import React from 'react'
+import Board from "../assets/Board.png"
+import o from "../assets/o.png"
+import x from "../assets/x.png"
+
 
 function Square(props) {
+
+
   return (
     <div
     className='sqr'
@@ -12,16 +18,16 @@ function Square(props) {
 
     {props.value==="X"?<>
 
-    <img src="src\assets\X.png" alt="asd" style={{width:"100%", height:"100%"}} />
+    <img src={x} alt="xxx" style={{width:"100%", height:"100%"}} />
     </>
 
     :props.value==="O"?<>
-<img src="src\assets\O.png" alt="asd" style={{width:"100%", height:"100%"}} />
+<img src={o} alt="ooo" style={{width:"100%", height:"100%"}} />
     
     </>
 
     :<>
-      <img src="src\assets\Board.png" alt="asd" style={{width:"100%", height:"100%"}} />
+      <img src={Board} alt="baord" style={{width:"100%", height:"100%"}} />
         <div className="square">
             <h5>{props.value}</h5>
         </div>

@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Square from "./Square";
 
 function Board() {
   const [state, setState] = useState(Array(9).fill(null));
   const [isX, setIsX] = useState(true);
+  const [track,setTrack]=useState([]);
 
   const handleClick = (index) => {
 
     if(state[index]!=null){
         return;
     }
+
+    
     const copyState = [...state];
+    
+    setTrack(prevTrack=>[...prevTrack,index]);
+    console.log(track);
+
 
     copyState[index] = isX ? "X" : "O";
 
@@ -52,9 +59,20 @@ function Board() {
             }
     }
   }
+
+
   const handleUndo=()=>{
 
+    console.log(track[track.length-1]);
+    const newArr = [...state];
+       
+  newArr[track[track.length-1]]=null;
+    track.pop();
+
+    setState(newArr)
+  
     setIsX(!isX);
+
 
   }
 
@@ -63,11 +81,14 @@ function Board() {
  
   const resetGame=()=>{
     setState(Array(9).fill(null));
+    setTrack([])
     
   }
 
   const isWinner = checkWinner();
   const isDraw = checkDraw();
+
+
 
   return (
 

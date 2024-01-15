@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Square from "./Square";
 
 function Board() {
+
+
+
   const [state, setState] = useState(Array(9).fill(null));
   const [isX, setIsX] = useState(true);
   const [track,setTrack]=useState([]);
@@ -105,11 +108,15 @@ function Board() {
           <Square onClick={() => handleClick(1)} value={state[1]} />
           <Square onClick={() => handleClick(2)} value={state[2]} />
         </div>
+        <br></br>
+        <br></br>
         <div className="board-row">
           <Square onClick={() => handleClick(3)} value={state[3]} />
           <Square onClick={() => handleClick(4)} value={state[4]} />
           <Square onClick={() => handleClick(5)} value={state[5]} />
         </div>
+        <br></br>
+        <br></br>
         <div className="board-row">
           <Square onClick={() => handleClick(6)} value={state[6]} />
           <Square onClick={() => handleClick(7)} value={state[7]} />
